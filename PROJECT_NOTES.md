@@ -178,6 +178,9 @@ User ගේ අන්තිම ඉල්ලීම. තවම project එකට �
 
 - **Polish (2026-11-22):** අලි ඇවිදීම — `walk = k * 400` (පියවර චක්‍රයක් ~2s, දුර අනුව; බොනකොට නවතිනවා), පාදය 0.22 පැද්දෙනවා + 0.12 උස්සනවා, දණහිස නැවෙනවා, bob 0.035. හොල්මන — සාරි රැලි/පොට, දිලිසෙන දාරය, සුදුමැලි මූණ (ගිලුණු දිලිසෙන ඇස්, "ඕ" කට), මූණ වටේ කොණ්ඩය + පාවෙන ගස් 4ක්, ඇඟිලි 3ක් එක්ක වනන අත, ectoplasm මීදුම් වලිගය, spirit orbs 10ක්, හිස වටේ halo, ජලය මත එළිය. ත්‍රීවීල් — Bajaj profile: වටකුරු පිටුපස "බාත් ටබ්" බොඩිය (stripe + ක්‍රෝම්), පහත් රියදුරු තට්ටුව (කකුල් පේනවා), උස ඇල නාසය + ලයිට්, ඇල වින්ඩ්ස්ක්‍රීන්, ඉදිරියට එල්ලෙන වහලය, පිටුපස කැන්වස් + ජනේලය, කණ්ණාඩිය, කැරකෙන spokes, සුදු කමිස රියදුරු හැන්ඩලය අල්ලන්.
 
+- **GitHub (2026-11-22):** https://github.com/00sanoj00/HelaClock-Wall (public, GPL-3.0 code; fonts/images GPL එකට නෑ). මේ repo එකේ git email = GitHub noreply (`23280492+00sanoj00@users.noreply.github.com`). README: hero + screenshots `docs/screenshots/`, credits (creator co-developer, Claude Code, Google Flow images). `.gitignore` එකේ `release-keystore/`, `local.properties`, `release-out/`. Push කරන්නේ user (VS Code Sync) — මට credentials නෑ.
+- **v1.2 (versionCode 3):** `release-out/HelaClock-Wall-v1.2.apk` (release key, cert SHA-256 73:C8:9F…), `.sha256`, notes `docs/releases/v1.2.md`, tag `v1.2`. AAB එකත් v1.2 (Play එකට).
+
 **දන්නා ප්‍රශ්න:**
 - Text size ලොකු කරලා "වේලාව" label එක on කළාම tablet screen එකේ label එක launcher search bar එකට යටින් යන්න පුළුවන්. Text position slider එකෙන් පහළට කරලා හදාගන්න පුළුවන්.
 - Settings panel එක ලොකු කළාම වෙලාවේ text එක panel එකේ translucent පසුබිම හරහා පේනවා (preview එකේ විතරයි).

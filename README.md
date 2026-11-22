@@ -17,6 +17,10 @@
 
 <img src="docs/screenshots/hero.jpg" alt="Dawn, morning, noon, evening and night over Sigiriya" width="100%"/>
 
+<br/>
+
+[![Download APK](https://img.shields.io/badge/⬇%20Download-APK%20(Android%207.0%2B)-2ea44f?style=for-the-badge&logo=android&logoColor=white)](https://github.com/00sanoj00/HelaClock-Wall/releases/latest)
+
 </div>
 
 ---
