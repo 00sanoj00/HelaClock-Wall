@@ -33,3 +33,6 @@ Thumbs.db
 
 # ---- Release artifacts (uploaded to GitHub Releases, not committed)
 release-out/
+
+# ---- Private dev notes (kept locally, not published)
+PROJECT_NOTES.md
