@@ -1,7 +1,45 @@
 # සිංහල වේලාව – Live Wallpaper (Project Notes)
 
 > අලුත් session එකක් පටන් ගන්නකොට මුලින්ම මේ file එක කියවන්න.
-> අන්තිම update: 2026-11-21 (v1.1: දින දර්ශනය, ඇත්ත කාලගුණය, උත්සව, සතුන්, battery saver, Play Store)
+> අන්තිම update: 2026-11-22 (v1.2 — GitHub එකේ publish කළා. Project එක දැනට **ඉවරයි**; bugs ආවොත් පස්සේ හදනවා.)
+
+## 0. දැන් තත්ත්වය (2026-11-22) — මෙතනින් පටන් ගන්න
+
+**Project එක දැනට සම්පූර්ණයි.** User කිව්වා: "bugs ආවොත් පසුව හදමු". ඊළඟ session එක බොහෝ විට bug fix එකක් වෙයි.
+
+| දේ | තත්ත්වය |
+|---|---|
+| Version | **v1.2** (versionCode 3). Tag `v1.2` |
+| GitHub | https://github.com/00sanoj00/HelaClock-Wall — public, code GPL-3.0 (fonts/images GPL එකට නෑ) |
+| Git | `main` = `origin/main` (user VS Code Sync එකෙන් push කරනවා — මට GitHub credentials **නෑ**, `gh` CLI නෑ) |
+| Git identity (මේ repo එකට විතරයි) | `00sanoj00 <23280492+00sanoj00@users.noreply.github.com>` — user ගේ Gmail commits වලට දාන්න එපා |
+| Commit attribution | `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>` |
+| Release files | `release-out/` (gitignored): `HelaClock-Wall-v1.2.apk` (release key), `.sha256`, promo videos |
+| Release notes | `docs/releases/v1.2.md` — GitHub Release එක user web එකෙන් හදනවා (APK + sha256 upload) |
+| Play Store | AAB `app/build/outputs/bundle/release/app-release.aab` (v1.2). User upload කරන්න ඕනේ; privacy policy online host කරන්න ඕනේ |
+| Keystore | `release-keystore/` — **කවදාවත් commit කරන්න / share කරන්න එපා** (gitignored). Cert SHA-256 `73:C8:9F:0F:…:C5:E9` |
+| Tests | 14ම pass (`./gradlew test`) |
+| README | `README.md` — hero + screenshots (`docs/screenshots/`), features, build, credits (creator co-developer, Claude Code, Google Flow images, Open-Meteo, fonts) |
+
+**අලුත් version එකක් release කරන විදිහ:**
+1. `app/build.gradle.kts` එකේ `versionCode`/`versionName` වැඩි කරන්න.
+2. `./gradlew test assembleRelease bundleRelease`
+3. APK එක `release-out/HelaClock-Wall-vX.Y.apk` විදිහට copy කරලා `sha256sum` → `.sha256`; `apksigner verify --print-certs` එකෙන් release key එකද බලන්න.
+4. `docs/releases/vX.Y.md` ලියලා commit කරලා `git tag -a vX.Y`.
+5. User: VS Code Sync + `Git: Push Tags`, ඊට පස්සේ GitHub → Releases → New → tag එක තෝරලා notes paste කරලා APK + sha256 upload.
+
+**Promo video එක (Facebook):** `release-out/HelaClock-Wall-clean.mp4` (subtitles නැති, user ට ඕන කළේ මේක) සහ `HelaClock-Wall-promo.mp4` (සිංහල/ඉංග්‍රීසි captions). හැදුවේ:
+- `tools/video/record_clips.py <out_dir> [set:Rain:On] [rain] …` — emulator එකේ `screenrecord` වලින් clips 12 (debug extras: ghost/tuk/croc/aprilfool/newyear). UI settings tap කරන helper එක හිස් text nodes මඟ හරිනවා (නැත්නම් "On" chip එක හොයාගන්නේ නෑ).
+- `tools/video/make_video.py <out_dir>` — clip එකින් එක render කරලා (memory ඉවර නොවෙන්න — එකපාර කළාම OOM, exit 137) crossfade 0.6s, 1080×1920 30fps, silent AAC.
+- **ffmpeg drawtext එක සිංහල හරියට shape කරන්නේ නෑ** (කොම්බුව වෙනම වැටෙනවා). Captions ඕන නම් PIL + raqm (`ImageFont.Layout.RAQM`, Noto Sans Sinhala) එකෙන් PNG හදලා overlay කරන්න.
+
+**Emulator test කරනකොට මතක තියාගන්න:**
+- Fire_7 VM `127.0.0.1:6555`, timezone **GMT** (ඒ නිසා sunset clamp 17:00 → අලි 16:00–17:14 විතර).
+- `am force-stop` කළාම wallpaper එක default එකට reset වෙනවා → `CHANGE_LIVE_WALLPAPER` intent + tap 600,1895 → 600,1089 එකෙන් ආයේ set කරන්න.
+- Emulator settings දැන්: Rain **Off**, Strong wind **On**, Live weather on.
+- Preview extras: `--ei minute N --ez hideui true` + `poya vesak avurudu thunder rainbow moon ghost tuk croc aprilfool newyear`.
+
+**User ගැන:** casual සිංහලෙන් කතා කරනවා; ලොකු features වලට මුලින් අදහස් කතා කරලා "හදපන්" / "ඇඩ් කරන්න" කිව්වම හදනවා. Emulator එකේ screenshot වලින් verify කරලා පෙන්නන එකට කැමතියි. Wallpaper text එක සිංහල විතරයි, settings UI ඉංග්‍රීසි, time එකට යටින් extra පේළි එපා.
 
 ## 1. Project එක මොකක්ද
 
